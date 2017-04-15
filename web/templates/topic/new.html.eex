@@ -1,0 +1,8 @@
+<h1 class=".gray">A new title</h1>
+
+<%= form_for @changeset, topic_path(@conn, :create), fn f -> %>
+Title: <%= text_input f, :title, placeholder: "Title", class: "pa2" %>
+<%= error_tag f, :title %>
+
+<%= submit "Submit", class: "bg-white black pa2" %>
+<% end %>
