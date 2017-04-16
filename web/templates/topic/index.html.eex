@@ -1,0 +1,15 @@
+<h1 class="dib">All Topics</h1>
+<%= link to: topic_path(@conn, :new), class: "f6 ml5 dib bg-white black pa2 ba" do %>
+  Add Topic
+<% end %>
+
+<ul>
+  <%= for t <- @topics do %>
+    <li>
+      <%= t.title %>
+      <%= link "Edit", to: topic_path(@conn, :edit, t) %>
+    </li>
+  <% end %>
+
+
+</ul>
