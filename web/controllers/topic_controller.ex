@@ -3,6 +3,8 @@ defmodule Discuss.TopicController do
 
   alias Discuss.Topic
 
+  plug Discuss.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete]
+
   def edit conn, %{"id" => id} do
     topic = Repo.get(Topic, id)
     changeset = Topic.changeset(topic)
