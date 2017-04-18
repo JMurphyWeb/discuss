@@ -7,8 +7,10 @@
   <%= for t <- @topics do %>
     <li>
       <%= t.title %>
-      <%= link "Edit", to: topic_path(@conn, :edit, t) %>
-      <%= link "Delete", to: topic_path(@conn, :delete, t), method: :delete %>
+      <%= if @conn.assigns.user.id == t.user_id do %>
+        <%= link "Edit", to: topic_path(@conn, :edit, t) %>
+        <%= link "Delete", to: topic_path(@conn, :delete, t), method: :delete %>
+      <% end %>
     </li>
   <% end %>
 
